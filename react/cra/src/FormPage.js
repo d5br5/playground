@@ -4,41 +4,31 @@ import Input from "./Input";
 import { useState } from "react";
 
 function FormHook() {
-  const [name, setName] = useState({
-    value: "",
-    error: false,
-    msg: "",
-  });
-  const [password, setPassword] = useState({
-    value: "",
-    error: false,
-    msg: "",
-  });
+  const [email, setEmail] = useState({ value: "", error: false });
 
-  const handleName = (e) => {
+  const handleEmail = (e) => {
     const { value } = e.target;
-    setName((prev) => ({ ...prev, value }));
-  };
-  const handlePassword = (e) => {
-    const { value } = e.target;
-    setPassword((prev) => ({ ...prev, value }));
+    const isValid = validateEmail(value);
+    if (!restrictEmail(value))
+      setEmail((prev) => ({ ...prev, value, error: !isValid }));
   };
 
-  const validateName = (value) => {
-    return value.length < 6;
+  const validateEmail = (value) => {
+    return value.length > 6;
   };
-  const validatePassword = (value) => {
-    return value.length > 4 && value.length < 10;
+
+  const restrictEmail = (value) => {
+    return value.length > 10;
   };
 
   return (
     <Layout>
       <Form>
-        <Input name="name" value={name.value} onChange={handleName} />
         <Input
-          name="password"
-          value={password.value}
-          onChange={handlePassword}
+          name="email"
+          value={email.value}
+          error={email.error}
+          onChange={handleEmail}
         />
         <Button type="submit">Submit</Button>
       </Form>

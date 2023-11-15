@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   const style = {
     display: "flex",
     width: "100%",
-    padding: 30,
+    height: "100vh",
     alignItems: "center",
     justifyContent: "center",
   };
