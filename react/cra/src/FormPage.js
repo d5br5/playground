@@ -24,8 +24,8 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  padding: 20px 25px;
+  gap: 25px;
+  padding: 25px 30px;
   border-radius: 4px;
 `;
 
