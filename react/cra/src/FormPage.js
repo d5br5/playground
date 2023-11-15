@@ -1,23 +1,25 @@
 import styled from "@emotion/styled";
 import Layout from "./Layout";
 import Input from "./Input";
+import { useState } from "react";
 
 function FormPage() {
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const {
-      name: { value: name },
-      password: { value: password },
-    } = event.target;
-    // logic for data processing
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
     <Layout>
-      <Form onSubmit={onSubmit}>
-        <Input id="name" label="Name" />
-        <Input id="password" label="Password" />
-        <Button>Submit</Button>
+      <Form>
+        <Input id="Name" value={name} onChange={handleName} />
+        <Input id="Password" value={password} onChange={handlePassword} />
+        <Button type="submit">Submit</Button>
       </Form>
     </Layout>
   );

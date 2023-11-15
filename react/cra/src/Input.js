@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import React from "react";
 
-const Input = ({ id, label }) => {
-  console.log(`rendered : Input for "${label}"`);
+const Input = ({ id, label, ...props }) => {
+  console.log(`rendered : Input for "${label || id}"`);
   return (
     <Container>
-      <Label htmlFor={id}>{label}</Label>
-      <InputBox id={id} />
+      <Label htmlFor={id}>{label || id}</Label>
+      <InputBox id={id} {...props} />
     </Container>
   );
 };
