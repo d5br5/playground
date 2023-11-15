@@ -3,22 +3,43 @@ import Layout from "./Layout";
 import Input from "./Input";
 import { useState } from "react";
 
-function FormPage() {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+function FormHook() {
+  const [name, setName] = useState({
+    value: "",
+    error: false,
+    msg: "",
+  });
+  const [password, setPassword] = useState({
+    value: "",
+    error: false,
+    msg: "",
+  });
 
   const handleName = (e) => {
-    setName(e.target.value);
+    const { value } = e.target;
+    setName((prev) => ({ ...prev, value }));
   };
   const handlePassword = (e) => {
-    setPassword(e.target.value);
+    const { value } = e.target;
+    setPassword((prev) => ({ ...prev, value }));
+  };
+
+  const validateName = (value) => {
+    return value.length < 6;
+  };
+  const validatePassword = (value) => {
+    return value.length > 4 && value.length < 10;
   };
 
   return (
     <Layout>
       <Form>
-        <Input id="Name" value={name} onChange={handleName} />
-        <Input id="Password" value={password} onChange={handlePassword} />
+        <Input name="name" value={name.value} onChange={handleName} />
+        <Input
+          name="password"
+          value={password.value}
+          onChange={handlePassword}
+        />
         <Button type="submit">Submit</Button>
       </Form>
     </Layout>
@@ -40,4 +61,4 @@ const Button = styled.button`
   height: 25px;
 `;
 
-export default FormPage;
+export default FormHook;

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { forwardRef } from "react";
 
-const Input = ({ id, label, ...props }) => {
-  console.log(`rendered : Input for "${label || id}"`);
+const Input = forwardRef(({ name, ...props }, ref) => {
+  console.log(`rendered : Input for "${name}"`);
   return (
     <Container>
-      <Label htmlFor={id}>{label || id}</Label>
-      <InputBox id={id} {...props} />
+      <Label htmlFor={name}>{name}</Label>
+      <InputBox id={name} name={name} {...props} ref={ref} />
     </Container>
   );
-};
+});
 
 const Container = styled.div`
   width: 300px;
