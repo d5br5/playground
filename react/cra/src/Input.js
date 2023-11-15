@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 
 const Input = ({ id, label }) => {
+  console.log(`rendered : Input for "${label}"`);
   return (
     <Container>
       <Label htmlFor={id}>{label}</Label>

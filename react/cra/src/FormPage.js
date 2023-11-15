@@ -3,9 +3,13 @@ import Layout from "./Layout";
 import Input from "./Input";
 
 function FormPage() {
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(e);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    const {
+      name: { value: name },
+      password: { value: password },
+    } = event.target;
+    // logic for data processing
   };
 
   return (
