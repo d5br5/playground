@@ -1,11 +1,11 @@
-import Test from "./Test";
+import FormPage from "./FormPage";
 
 function App() {
-	return (
-		<div className="App">
-			<Test />
-		</div>
-	);
+  return (
+    <div className="App">
+      <FormPage />
+    </div>
+  );
 }
 
 export default App;
