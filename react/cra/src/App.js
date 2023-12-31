@@ -1,11 +1,12 @@
-import Test from "./Test";
+import useFadeIn from "./hooks/useFadeIn";
 
 function App() {
-	return (
-		<div className="App">
-			<Test />
-		</div>
-	);
+  const h1 = useFadeIn();
+  return (
+    <div className="App">
+      <h1 {...h1}>Hi</h1>
+    </div>
+  );
 }
 
 export default App;
