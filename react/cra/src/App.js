@@ -1,12 +1,7 @@
-import useFadeIn from "./hooks/useFadeIn";
+import SectionHeading from "./section-heading";
 
 function App() {
-  const h1 = useFadeIn();
-  return (
-    <div className="App">
-      <h1 {...h1}>Hi</h1>
-    </div>
-  );
+  return <SectionHeading />;
 }
 
 export default App;
