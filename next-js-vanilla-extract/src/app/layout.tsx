@@ -26,8 +26,18 @@ export default function RootLayout({
 }>) {
   return (
     <ColorModeProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              const localTheme = window.localStorage.getItem('vanilla-theme-pref');
+              if (localTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+              }
+            `,
+            }}
+          />
           <ColorModeToggle />
           {children}
         </body>
