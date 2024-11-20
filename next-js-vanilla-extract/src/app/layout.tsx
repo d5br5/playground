@@ -1,5 +1,7 @@
+import { ColorModeProvider, ColorModeToggle } from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "./style.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,10 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
-    </html>
+    <ColorModeProvider>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <ColorModeToggle />
+          {children}
+        </body>
+      </html>
+    </ColorModeProvider>
   );
 }
