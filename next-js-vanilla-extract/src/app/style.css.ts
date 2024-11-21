@@ -8,12 +8,12 @@ globalStyle("html, body", {
 });
 
 globalStyle(`.${darkMode}`, {
-  background: vars.palette.black,
-  color: vars.palette.gray50,
+  background: vars.theme.bg.modalMenu,
+  color: vars.theme.common.main,
   colorScheme: "dark",
 });
 
 globalStyle("html", {
-  background: vars.palette.white,
-  color: vars.palette.coolGray900,
+  background: vars.theme.bg.modalMenu,
+  color: vars.theme.common.main,
 });

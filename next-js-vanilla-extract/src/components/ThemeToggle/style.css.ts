@@ -11,13 +11,13 @@ const themeVars = createThemeContract({
 const lightVars = assignVars(themeVars, {
   toggleBrightness: "0",
   toggleContent: '"☀️"',
-  focusRingColor: vars.palette.pink400,
+  focusRingColor: vars.theme.common.sub,
 });
 
 const darkVars = assignVars(themeVars, {
   toggleBrightness: "10",
   toggleContent: '"🌙"',
-  focusRingColor: vars.palette.pink500,
+  focusRingColor: vars.theme.common.sub,
 });
 
 export const root = style({
