@@ -32,7 +32,7 @@ export const themeLight = createGlobalTheme("html", themeVars, {
   common: {
     main: "#181818",
     sub: "#ffffff",
-    thumbnail: "#eeeeee",
+    thumbnail: "red",
   },
 });
 
@@ -50,6 +50,6 @@ export const themeDark = createGlobalTheme("html.dark", themeVars, {
   common: {
     main: "#ffffff",
     sub: "#181818",
-    thumbnail: "#414248",
+    thumbnail: "#fedb00",
   },
 });
