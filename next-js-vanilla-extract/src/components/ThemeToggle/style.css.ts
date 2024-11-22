@@ -1,6 +1,6 @@
 import { assignVars, createThemeContract, style } from "@vanilla-extract/css";
 import { darkMode } from "../system/styles/sprinkles.css";
-import { vars } from "../system/theme/themes.css";
+import { vars } from "../system/theme/typo.css";
 
 const themeVars = createThemeContract({
   toggleBrightness: null,

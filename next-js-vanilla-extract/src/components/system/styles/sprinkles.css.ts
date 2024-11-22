@@ -9,7 +9,7 @@ import {
 import { calc } from "@vanilla-extract/css-utils";
 
 import { breakpoints } from "../theme/utils";
-import { vars } from "../theme/themes.css";
+import { vars } from "../theme/typo.css";
 
 const space = vars.spacing;
 export type Space = keyof typeof space;

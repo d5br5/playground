@@ -1,4 +1,4 @@
-import { createTheme, createThemeContract } from "@vanilla-extract/css";
+import { createGlobalTheme, createThemeContract } from "@vanilla-extract/css";
 
 export const themeVars = createThemeContract({
   bg: {
@@ -18,25 +18,7 @@ export const themeVars = createThemeContract({
   },
 });
 
-export const themeDark = createTheme(themeVars, {
-  bg: {
-    gnb: "#101014",
-    lnb: "hsla(224, 13%, 11%, 1)",
-    tradingView: "#101014",
-    balanceMyTable: "#181a1f",
-    modalMenu: "#2f3136",
-    table: "rgba(134,142,155,0.15)",
-    BW: "#000000",
-    transBG: "rgba(165,175,196,0.1)",
-  },
-  common: {
-    main: "#ffffff",
-    sub: "#181818",
-    thumbnail: "#414248",
-  },
-});
-
-export const themeLight = createTheme(themeVars, {
+export const themeLight = createGlobalTheme("html", themeVars, {
   bg: {
     gnb: "#212938",
     lnb: "#212938",
@@ -51,5 +33,23 @@ export const themeLight = createTheme(themeVars, {
     main: "#181818",
     sub: "#ffffff",
     thumbnail: "#eeeeee",
+  },
+});
+
+export const themeDark = createGlobalTheme("html.dark", themeVars, {
+  bg: {
+    gnb: "#101014",
+    lnb: "hsla(224, 13%, 11%, 1)",
+    tradingView: "#101014",
+    balanceMyTable: "#181a1f",
+    modalMenu: "#2f3136",
+    table: "rgba(134,142,155,0.15)",
+    BW: "#000000",
+    transBG: "rgba(165,175,196,0.1)",
+  },
+  common: {
+    main: "#ffffff",
+    sub: "#181818",
+    thumbnail: "#414248",
   },
 });
