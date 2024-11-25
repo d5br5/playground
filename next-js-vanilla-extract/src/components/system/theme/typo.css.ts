@@ -3,7 +3,6 @@ import { precomputeValues } from "@capsizecss/vanilla-extract";
 import colors from "tailwindcss/colors";
 
 import { Breakpoint } from "./utils";
-import { themeVars } from "./theme.css";
 
 const grid = 4;
 const px = (value: string | number) => `${value}px`;
@@ -263,7 +262,7 @@ export const vars = createGlobalTheme(":root", {
     regular: "400",
     strong: "700",
   },
-  theme: themeVars,
+
   palette: tailwindPalette,
   border: {
     width: {

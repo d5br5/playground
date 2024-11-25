@@ -1,6 +1,5 @@
 "use client";
 
-import { themeDark, themeLight } from "@/components/system/theme/theme.css";
 import { ThemeProvider as NextThemeProvider, useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -9,7 +8,7 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     <NextThemeProvider
       attribute={"class"}
       defaultTheme="system"
-      value={{ light: themeLight, dark: themeDark }}
+      value={{ dark: "dark", light: "light" }}
     >
       {children}
     </NextThemeProvider>
