@@ -1,7 +1,7 @@
-import { ColorModeProvider, ColorModeToggle } from "@/components/ThemeToggle";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./style.css";
+import ThemeProvider, { ThemeChanger } from "@/context/theme";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,23 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ColorModeProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              const localTheme = window.localStorage.getItem('vanilla-theme-pref');
-              if (localTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-              }
-            `,
-            }}
-          />
-          <ColorModeToggle />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeProvider>
+          <ThemeChanger />
           {children}
-        </body>
-      </html>
-    </ColorModeProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

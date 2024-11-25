@@ -1,4 +1,4 @@
-import { createGlobalTheme, createThemeContract } from "@vanilla-extract/css";
+import { createTheme, createThemeContract } from "@vanilla-extract/css";
 
 export const themeVars = createThemeContract({
   bg: {
@@ -18,7 +18,7 @@ export const themeVars = createThemeContract({
   },
 });
 
-export const themeLight = createGlobalTheme("html", themeVars, {
+export const themeLight = createTheme(themeVars, {
   bg: {
     gnb: "#212938",
     lnb: "#212938",
@@ -36,7 +36,7 @@ export const themeLight = createGlobalTheme("html", themeVars, {
   },
 });
 
-export const themeDark = createGlobalTheme("html.dark", themeVars, {
+export const themeDark = createTheme(themeVars, {
   bg: {
     gnb: "#101014",
     lnb: "hsla(224, 13%, 11%, 1)",
