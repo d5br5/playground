@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./style.css";
-import ThemeProvider, { ThemeChanger } from "@/context/theme";
+import * as Theme from "@/context/theme";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,10 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider>
-          <ThemeChanger />
+        <Theme.Provider>
+          <Theme.Switch />
           {children}
-        </ThemeProvider>
+        </Theme.Provider>
       </body>
     </html>
   );

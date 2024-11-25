@@ -1,21 +1,8 @@
 "use client";
-
-import { ThemeProvider as NextThemeProvider, useTheme } from "next-themes";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <NextThemeProvider
-      attribute={"class"}
-      defaultTheme="system"
-      value={{ dark: "dark", light: "light" }}
-    >
-      {children}
-    </NextThemeProvider>
-  );
-};
-
-export const ThemeChanger = () => {
+export const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -32,5 +19,3 @@ export const ThemeChanger = () => {
     </div>
   );
 };
-
-export default ThemeProvider;
