@@ -112,10 +112,19 @@ const unresponsiveProperties = defineProperties({
   },
 });
 
+const fontProperties = defineProperties({
+  properties: {
+    fontSize: vars.text.code,
+    fontWeight: vars.text.standard,
+    lineHeight: vars.text.standard,
+  },
+});
+
 export const sprinkles = createSprinkles(
   responsiveProperties,
   unresponsiveProperties,
-  colorProperties
+  colorProperties,
+  fontProperties
 );
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];

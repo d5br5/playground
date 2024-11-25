@@ -49,7 +49,7 @@ export const themeDark = createGlobalTheme("html.dark", theme, {
   },
   common: {
     main: "#ffffff",
-    sub: "#181818",
+    sub: "#eeeeee",
     thumbnail: "#fedb00",
   },
 });
