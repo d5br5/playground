@@ -1,19 +1,14 @@
 "use client";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import * as style from "./style.css";
 
 export const ThemeSwitch = () => {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
+  const { setTheme } = useTheme();
 
   return (
     <div>
-      The current theme is: {theme}
+      <div className={style.lightLabel}>current theme is light</div>
+      <div className={style.darkLabel}>current theme is dark</div>
       <button onClick={() => setTheme("light")}>Light Mode</button>
       <button onClick={() => setTheme("dark")}>Dark Mode</button>
     </div>
