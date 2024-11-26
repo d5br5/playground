@@ -9,8 +9,9 @@ import {
 import { calc } from "@vanilla-extract/css-utils";
 
 import { breakpoints } from "./utils";
-import { vars } from "./typo.css";
+import { vars } from "./typo-example.css";
 import { theme } from "./theme.css";
+import { typoVars } from "./typo.css";
 
 const space = vars.spacing;
 export type Space = keyof typeof space;
@@ -113,19 +114,31 @@ const unresponsiveProperties = defineProperties({
   },
 });
 
-const fontProperties = defineProperties({
+// const fontProperties = defineProperties({
+//   properties: {
+//     fontSize: vars.text.code,
+//     fontWeight: vars.text.standard,
+//     lineHeight: vars.text.standard,
+//   },
+// });
+
+const typographyProperties = defineProperties({
   properties: {
-    fontSize: vars.text.code,
-    fontWeight: vars.text.standard,
-    lineHeight: vars.text.standard,
+    fontSize: typoVars.fontSizes, // 디자인에서 제공하는 font-size 변수
+    lineHeight: typoVars.lineHeights, // 디자인에서 제공하는 line-height 변수
+    fontWeight: typoVars.fontWeights, // 디자인에서 제공하는 font-weight 변수
   },
+  // shorthands: {
+  //   typography: ["fontSize", "lineHeight", "fontWeight"], // 단일 호출로 정의 가능
+  // },
 });
 
 export const sprinkles = createSprinkles(
   responsiveProperties,
   unresponsiveProperties,
   colorProperties,
-  fontProperties
+  // fontProperties,
+  typographyProperties
 );
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];

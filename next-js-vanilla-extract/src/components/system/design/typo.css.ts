@@ -1,279 +1,72 @@
-import { createGlobalTheme } from "@vanilla-extract/css";
-import { precomputeValues } from "@capsizecss/vanilla-extract";
-import colors from "tailwindcss/colors";
-
-import { Breakpoint } from "./utils";
-
-const grid = 4;
-const px = (value: string | number) => `${value}px`;
-
-const fontMetrics = {
-  brand: {
-    capHeight: 669,
-    ascent: 1026,
-    descent: -432,
-    lineGap: 0,
-    unitsPerEm: 1000,
+export const typoVars = {
+  fontSizes: {
+    h1: "50px",
+    h2: "48px",
+    h3: "40px",
+    t1: "36px",
+    t2: "30px",
+    t3: "24px",
+    t4: "22px",
+    st1: "20px",
+    st2: "18px",
+    b1: "16px",
+    b2: "15px",
+    b3: "14px",
+    c1: "13px",
+    c2: "12px",
+    c3: "12px",
+    c4: "10px",
+    tb1: "14px",
+    tb2: "15px",
+    tb3: "18px",
+    tb4: "20px",
+    tb5: "12px",
+    btn1: "18px",
+    btn2: "15px",
+    btn3: "14px",
+    btn4: "13px",
+    btn5: "12px",
+    i1: "14px",
+    i2: "15px",
+    e1: "14px",
+    e2: "15px",
   },
-  heading: {
-    capHeight: 700,
-    ascent: 992,
-    descent: -310,
-    lineGap: 0,
-    unitsPerEm: 1000,
+  lineHeights: {
+    h1: "60px",
+    h2: "56px",
+    h3: "48px",
+    t1: "42px",
+    t2: "36px",
+    t3: "30px",
+    t4: "26px",
+    st1: "24px",
+    st2: "24px",
+    b1: "24px",
+    b2: "22px",
+    b3: "20px",
+    c1: "16px",
+    c2: "14px",
+    c3: "16px",
+    c4: "12px",
+    tb1: "20px",
+    tb2: "20px",
+    tb3: "22px",
+    tb4: "26px",
+    tb5: "16px",
+    btn1: "24px",
+    btn2: "20px",
+    btn3: "20px",
+    btn4: "16px",
+    btn5: "14px",
+    i1: "16px",
+    i2: "16px",
+    e1: "20px",
+    e2: "16px",
   },
-  body: {
-    capHeight: 1443,
-    ascent: 1950,
-    descent: -494,
-    lineGap: 0,
-    unitsPerEm: 2048,
-  },
-  code: {
-    capHeight: 700,
-    ascent: 1060,
-    descent: -320,
-    lineGap: 0,
-    unitsPerEm: 1000,
-  },
-};
-
-const tailwindPalette = {
-  white: "#fff",
-  black: "#0e0e10",
-  red: colors.red["500"],
-  yellow: colors.yellow["300"],
-  green50: colors.emerald["50"],
-  pink900: colors.fuchsia["900"],
-};
-
-const calculateTypographyStyles = (
-  definition: Record<Breakpoint, { fontSize: number; rows: number }>,
-  type: keyof typeof fontMetrics
-) => {
-  const mobile = precomputeValues({
-    fontSize: definition.mobile.fontSize,
-    leading: definition.mobile.rows * grid,
-    fontMetrics: fontMetrics[type],
-  });
-
-  const tablet = precomputeValues({
-    fontSize: definition.tablet.fontSize,
-    leading: definition.tablet.rows * grid,
-    fontMetrics: fontMetrics[type],
-  });
-
-  const desktop = precomputeValues({
-    fontSize: definition.desktop.fontSize,
-    leading: definition.desktop.rows * grid,
-    fontMetrics: fontMetrics[type],
-  });
-
-  return {
-    mobile: {
-      fontSize: mobile.fontSize,
-      lineHeight: mobile.lineHeight,
-      capHeightTrim: mobile.capHeightTrim,
-      baselineTrim: mobile.baselineTrim,
-    },
-    tablet: {
-      fontSize: tablet.fontSize,
-      lineHeight: tablet.lineHeight,
-      capHeightTrim: tablet.capHeightTrim,
-      baselineTrim: tablet.baselineTrim,
-    },
-    desktop: {
-      fontSize: desktop.fontSize,
-      lineHeight: desktop.lineHeight,
-      capHeightTrim: desktop.capHeightTrim,
-      baselineTrim: desktop.baselineTrim,
-    },
-  };
-};
-
-export const vars = createGlobalTheme(":root", {
-  fonts: {
-    brand: 'Shrikhand, "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif',
-    heading:
-      '"DM Sans", "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif',
-    body: '-apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
-    code: 'ml, "Roboto Mono", Menlo, monospace',
-  },
-  grid: px(grid),
-  spacing: {
-    none: "0",
-    xsmall: px(1 * grid),
-    small: px(2 * grid),
-    medium: px(3 * grid),
-    large: px(5 * grid),
-    xlarge: px(8 * grid),
-    xxlarge: px(12 * grid),
-    xxxlarge: px(24 * grid),
-  },
-  contentWidth: {
-    xsmall: px(480),
-    small: px(600),
-    standard: px(740),
-    large: px(960),
-    xlarge: px(1120),
-    xxlarge: px(1350),
-  },
-  heading: {
-    h1: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 36,
-          rows: 12,
-        },
-        tablet: {
-          fontSize: 52,
-          rows: 15,
-        },
-        desktop: {
-          fontSize: 52,
-          rows: 15,
-        },
-      },
-      "heading"
-    ),
-    h2: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 28,
-          rows: 10,
-        },
-        tablet: {
-          fontSize: 38,
-          rows: 12,
-        },
-        desktop: {
-          fontSize: 38,
-          rows: 12,
-        },
-      },
-      "heading"
-    ),
-    h3: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 24,
-          rows: 8,
-        },
-        tablet: {
-          fontSize: 30,
-          rows: 10,
-        },
-        desktop: {
-          fontSize: 30,
-          rows: 10,
-        },
-      },
-      "heading"
-    ),
-    h4: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 22,
-          rows: 8,
-        },
-        tablet: {
-          fontSize: 22,
-          rows: 9,
-        },
-        desktop: {
-          fontSize: 22,
-          rows: 9,
-        },
-      },
-      "heading"
-    ),
-  },
-  text: {
-    standard: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 18,
-          rows: 9,
-        },
-        tablet: {
-          fontSize: 20,
-          rows: 10,
-        },
-        desktop: {
-          fontSize: 20,
-          rows: 10,
-        },
-      },
-      "body"
-    ),
-    code: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 13,
-          rows: 6,
-        },
-        tablet: {
-          fontSize: 14,
-          rows: 7,
-        },
-        desktop: {
-          fontSize: 14,
-          rows: 7,
-        },
-      },
-      "body"
-    ),
-    small: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 16,
-          rows: 8,
-        },
-        tablet: {
-          fontSize: 16,
-          rows: 8,
-        },
-        desktop: {
-          fontSize: 16,
-          rows: 8,
-        },
-      },
-      "body"
-    ),
-    xsmall: calculateTypographyStyles(
-      {
-        mobile: {
-          fontSize: 15,
-          rows: 7,
-        },
-        tablet: {
-          fontSize: 15,
-          rows: 7,
-        },
-        desktop: {
-          fontSize: 15,
-          rows: 7,
-        },
-      },
-      "body"
-    ),
-  },
-  weight: {
+  fontWeights: {
     regular: "400",
-    strong: "700",
+    medium: "500",
+    semiBold: "600",
+    bold: "700",
   },
-
-  palette: tailwindPalette,
-  border: {
-    width: {
-      standard: px(1 * grid),
-      large: px(2 * grid),
-    },
-    radius: {
-      small: px(2 * grid),
-      medium: px(4 * grid),
-      large: px(7 * grid),
-      full: "9999px",
-    },
-  },
-});
+};
