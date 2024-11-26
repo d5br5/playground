@@ -8,8 +8,9 @@ import {
 } from "@vanilla-extract/sprinkles";
 import { calc } from "@vanilla-extract/css-utils";
 
-import { breakpoints } from "../theme/utils";
-import { vars } from "../theme/typo.css";
+import { breakpoints } from "./utils";
+import { vars } from "./typo.css";
+import { theme } from "./theme.css";
 
 const space = vars.spacing;
 export type Space = keyof typeof space;
@@ -82,13 +83,13 @@ export const lightMode = "light";
 export const darkMode = "dark";
 
 const colorProperties = defineProperties({
-  conditions: {
-    lightMode: {},
-    darkMode: { selector: `.${darkMode} &` },
-  },
-  defaultCondition: "lightMode",
+  // conditions: {
+  //   lightMode: {},
+  //   darkMode: { selector: `.${darkMode} &` },
+  // },
+  // defaultCondition: "lightMode",
   properties: {
-    background: vars.palette,
+    background: theme.common,
     color: vars.palette,
   },
 });

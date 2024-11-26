@@ -2,7 +2,7 @@
 
 import { AllHTMLAttributes, ElementType } from "react";
 import classnames from "classnames";
-import { sprinkles, Sprinkles } from "../styles/sprinkles.css";
+import { sprinkles, Sprinkles } from "../design/sprinkles.css";
 
 import classNames from "classnames";
 

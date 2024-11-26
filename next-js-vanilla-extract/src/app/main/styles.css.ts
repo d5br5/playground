@@ -1,5 +1,5 @@
-import { sprinkles } from "@/components/system/styles/sprinkles.css";
-import { theme } from "@/components/system/theme/theme.css";
+import { sprinkles } from "@/components/system/design/sprinkles.css";
+import { theme } from "@/components/system/design/theme.css";
 
 import { style } from "@vanilla-extract/css";
 
