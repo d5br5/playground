@@ -90,8 +90,8 @@ const colorProperties = defineProperties({
   // },
   // defaultCondition: "lightMode",
   properties: {
-    background: theme.common,
-    color: vars.palette,
+    background: theme.bg,
+    color: theme.text,
   },
 });
 
@@ -137,8 +137,8 @@ export const sprinkles = createSprinkles(
   responsiveProperties,
   unresponsiveProperties,
   colorProperties,
-  // fontProperties,
   typographyProperties
+  // fontProperties,
 );
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];

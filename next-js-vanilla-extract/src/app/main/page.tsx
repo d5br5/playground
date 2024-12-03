@@ -17,7 +17,7 @@ const Main = () => {
         margin={{ mobile: "small", desktop: "xlarge" }}
         display={{ mobile: "block", tablet: "flex" }}
         textAlign={{ mobile: "center", tablet: "right", desktop: "left" }}
-        background="thumbnail"
+        background="gnb"
       >
         반응형 스타일링
       </ResponsiveBox>
